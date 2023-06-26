@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -22,17 +24,26 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-config-next": "13.4.7",
+    "@storybook/addon-essentials": "^7.0.23",
+    "@storybook/addon-interactions": "^7.0.23",
+    "@storybook/addon-links": "^7.0.23",
+    "@storybook/blocks": "^7.0.23",
+    "@storybook/nextjs": "^7.0.23",
+    "@storybook/react": "^7.0.23",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@types/node": "20.3.1",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "eslint": "8.43.0",
+    "eslint-config-next": "13.4.7",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-storybook": "^0.6.12",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "storybook": "^7.0.23"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
