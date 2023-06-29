@@ -64,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
+    min-height : 100vh;
   }
 
   h2, p {
@@ -90,6 +91,11 @@ const GlobalStyle = createGlobalStyle`
     hover {
       text-decoration: none;
     }
+  }
+
+  /* 스타일 공동 규칙 */
+  .disabled {
+    background: #d0d0d0;
   }
 
 `

@@ -1,26 +1,33 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import InputText from './InputText'
+import InputTextLabel from './inputTextLabel'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
-const meta: Meta<typeof InputText> = {
-  title: 'Form/InputText',
-  component: InputText,
+const meta: Meta<typeof InputTextLabel> = {
+  title: 'Form/inputTextLabel',
+  component: InputTextLabel,
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: {
-      control: 'color',
+    w: {
+      control: 'number',
+    },
+    h: {
+      control: 'number',
+    },
+    name: {
+      control: 'string',
     },
   },
 }
 
 export default meta
-type Story = StoryObj<typeof InputText>
+type Story = StoryObj<typeof InputTextLabel>
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    disabled: false,
+    hidden: false,
+    name: 'hello',
   },
 }
