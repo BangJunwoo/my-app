@@ -1,15 +1,15 @@
+import { i18n } from '@/../i18n-config'
 import './nextGlobals.scss'
-// import { Inter } from 'next/font/google'
-import '@/global/reset.css'
+import '@/global/preset/reset.css'
 
-// const inter = Inter({ subsets: ['latin'] })
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }))
+}
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export default function Root({ children, params }: { children: React.ReactNode; params: { lang: string } }) {
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <body>{children}</body>
     </html>
   )
 }
-
-export default RootLayout

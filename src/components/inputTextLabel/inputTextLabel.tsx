@@ -3,10 +3,12 @@
 import { ForwardedRef, forwardRef } from 'react'
 import styled from 'styled-components'
 
-import { ZodError } from 'zod'
 import InputText, { StyleOptions as InputTextType } from '../inputText/InputText'
 
-type AddErrorType = InputTextType
+import { commonFrame } from '@/global/styledSystem/Frame'
+import type { FrameController } from '@/global/styledSystem/Frame'
+
+export type AddErrorType = InputTextType
 
 // input 을 유지하면서 react hook form 과 연계 되면서 스타일도 부여된 input 을 만들고자 함
 // 감싸는 div 는 자식인 input 이 포커스 되었음을 알지 못하므로 이를 감지해주는 값을 전달
@@ -18,7 +20,7 @@ const inputTextLabel = forwardRef((props: AddErrorType, ref: ForwardedRef<HTMLIn
   // ...
   // StyledInputContainer 컴포넌트를 디자인 컴포넌트로 모듈화 해봐라
   return (
-    <LabelArea>
+    <LabelArea w={props.w} h={props.h}>
       <PlaceHolder>{props.name}</PlaceHolder>
       <InputText {...props}></InputText>
     </LabelArea>
@@ -27,25 +29,29 @@ const inputTextLabel = forwardRef((props: AddErrorType, ref: ForwardedRef<HTMLIn
 
 export default inputTextLabel
 
-const LabelArea = styled.label`
+const LabelArea = styled.label<FrameController>`
+  ${commonFrame}
   position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 
-  margin-top: 24px;
+  margin-top: 1.5rem;
 `
 
 const PlaceHolder = styled.span`
   position: absolute;
   left: 0;
-  transition: transform 500ms;
+  transition: transform 300ms;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* easeOutBack */
+  color: #222;
 
   &:has(+ div input.empty) {
-    transform: translateX(50%) translateY(0);
+    transform: translateX(2rem) translateY(0);
   }
 
   &:has(+ div input:hover, + div input:focus, + div input:not(.empty)) {
-    transform: translateX(10%) translateY(-150%);
+    top: 0;
+    transform: translateX(1rem) translateY(-150%);
   }
 `

@@ -10,9 +10,11 @@ const meta: Meta<typeof InputText> = {
   argTypes: {
     w: {
       control: 'number',
+      step: 50,
     },
     h: {
       control: 'number',
+      step: 50,
     },
   },
 }

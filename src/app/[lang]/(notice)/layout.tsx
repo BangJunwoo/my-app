@@ -1,4 +1,4 @@
-import '@/global/reset.css'
+import '@/global/preset/reset.css'
 
 export const metadata = {
   title: 'Create Next Apple',

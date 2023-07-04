@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Preview } from '@storybook/react'
-import Test from '../src/global/globalStyle'
+import Test from '../src/global/preset/globalStyle'
 
 const preview: Preview = {
   decorators: [

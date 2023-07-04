@@ -1,6 +1,5 @@
 import React from 'react'
 import './button.css'
-import Test from '@/design/atomes/test'
 
 interface ButtonProps {
   /**
@@ -38,7 +37,6 @@ export const Button = ({ primary = false, size = 'medium', backgroundColor, labe
           background-color: ${backgroundColor};
         }
       `}</style>
-      <Test />
     </button>
   )
 }
