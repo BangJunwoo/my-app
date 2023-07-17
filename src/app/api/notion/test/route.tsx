@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server'
-import { filteredRows, allSearch } from '@/model/api/notion'
-import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints'
+import { filteredRows } from '@/model/api/notion'
 
 export async function GET() {
-  const data = await allSearch()
+  const data = await filteredRows()
   return NextResponse.json(data)
 }
 
