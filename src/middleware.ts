@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextRequest } from 'next/server'
 
 import { i18n } from '../i18n-config'
 
@@ -24,7 +24,7 @@ function getLocale(request: NextRequest): string | undefined {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
-  console.log('path', pathname)
+  console.log('middleware request path', pathname)
   // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
   // // If you have one
   // if (
@@ -53,5 +53,5 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Matcher ignoring `/_next/` and `/api/`
-  matcher: ['/((?!api|image|_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!api|image|video|_next/static|_next/image|favicon.ico).*)'],
 }

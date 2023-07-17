@@ -2,8 +2,8 @@
 
 import { ForwardedRef, forwardRef } from 'react'
 import styled from 'styled-components'
-import { commonFrame } from '@/global/styledSystem/Frame'
-import type { FrameController } from '@/global/styledSystem/Frame'
+import { commonFrame } from '@/design/styledSystem/frame'
+import type { FrameController } from '@/design/styledSystem/frame'
 import InputTextLabel, { AddErrorType as InputTextType } from '../inputTextLabel/inputTextLabel'
 import { FieldError } from 'react-hook-form'
 
