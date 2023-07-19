@@ -1,4 +1,4 @@
-export default function Head() {
+const Head = () => {
   return (
     <>
       <title>{`i18n within app directory - Vercel Examples`}</title>
@@ -7,3 +7,5 @@ export default function Head() {
     </>
   )
 }
+
+export default Head

@@ -11,6 +11,6 @@ const dictionaries = {
 }
 
 export const getDictionary = async (locale: Locale) => dictionaries[locale]()
-;(async () => {
-  ;(await getDictionary('ko'))['server-component']
-})()
+// ;(async () => {
+//   ;(await getDictionary('ko'))['server-component']
+// })()

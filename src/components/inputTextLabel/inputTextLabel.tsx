@@ -5,8 +5,8 @@ import styled from 'styled-components'
 
 import InputText, { StyleOptions as InputTextType } from '../inputText/InputText'
 
-import { commonFrame } from '@/design/styledSystem/frame'
-import type { FrameController } from '@/design/styledSystem/frame'
+import { commonFrame } from '@/design/styledSystem/Frame'
+import type { FrameController } from '@/design/styledSystem/Frame'
 
 export type AddErrorType = InputTextType
 

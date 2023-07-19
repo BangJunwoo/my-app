@@ -3,11 +3,9 @@ import Footer from './(footer)'
 import { getDictionary } from '@/../get-dictionary'
 import type { Locale } from '@/../i18n-config'
 import LocaleSwitcher from '@/components/i18n/locale-switcher'
-import './layout.scss'
+import styles from './layout.module.scss'
 import Navigation from './HashNavigation'
 import Header from './Header'
-
-import { goToId } from '@/model/utilities/viewAction'
 import RouterEvent from './RouterEvent'
 
 export const metadata = {
@@ -34,7 +32,7 @@ const RootLayout = async ({ params: { lang }, children }: Props) => {
       <p>id 기준으로 추적되게 + 네비게이팅도 되게 해보자</p>
       {Array.from({ length: 10 }).map((item, index) => {
         return (
-          <h2 key={index} id={`${index}`}>
+          <h2 className={styles.h2} key={index} id={`${index}`}>
             {index}
           </h2>
         )

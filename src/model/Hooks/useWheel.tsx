@@ -21,6 +21,7 @@ export type Direction = 'hold' | 'up' | 'down'
 type UseWhell = (scrollingElement: Element | null) => [Scroll, Direction]
 type Scroll = number
 
+let count = 0
 let lastScroll = 0
 let timmer = setTimeout(() => {})
 const useWheel: UseWhell = (scrollingElement) => {
@@ -31,14 +32,17 @@ const useWheel: UseWhell = (scrollingElement) => {
   useWindowEvent('wheel', (event) => {
     setWhell(event.deltaY)
     console.log(wheeel, lastScroll)
+    console.log('wheel', count++)
     if (0 > wheeel) setDirection('up')
     if (0 < wheeel) setDirection('down')
     if (0 === wheeel) setDirection('hold')
     lastScroll = wheeel
+
     if (timmer) {
       clearTimeout(timmer)
       timmer = setTimeout(() => {
         setDirection('hold')
+
         setWhell(0)
       }, 100)
     }

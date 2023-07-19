@@ -1,14 +1,11 @@
 import { i18n } from '@/../i18n-config'
 import './nextGlobals.scss'
-import '@/design/preset/reset.css'
 
-export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }))
-}
+// const size = ['1024px', '768px', '1680px']
 
-const Root = ({ children, params }: { children: React.ReactNode; params: { lang: string } }) => {
+const Root = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang={params.lang}>
+    <html>
       <body>{children}</body>
     </html>
   )

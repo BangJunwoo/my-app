@@ -27,6 +27,7 @@ export const useScroll: UseScroll = (scrollingElement) => {
   useWindowEvent('scroll', (event) => {
     setScroll(scrollingElement.scrollTop)
     console.log(scroll, lastScroll)
+    console.log('스크롤')
     if (lastScroll > scroll) setDirection('up')
     if (lastScroll < scroll) setDirection('down')
     if (lastScroll === scroll) setDirection('hold')
@@ -34,6 +35,7 @@ export const useScroll: UseScroll = (scrollingElement) => {
     if (timmer) {
       clearTimeout(timmer)
       timmer = setTimeout(() => {
+        console.log('스크롤', 'hold')
         setDirection('hold')
       }, 100)
     }

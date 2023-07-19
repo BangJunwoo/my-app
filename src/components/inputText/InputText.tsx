@@ -2,8 +2,8 @@
 
 import { FocusEvent, ForwardedRef, InputHTMLAttributes, forwardRef } from 'react'
 import styled from 'styled-components'
-import { commonFrame, commonFrameActive, commonFrameBlur } from '@/design/styledSystem/frame'
-import type { FrameController } from '@/design/styledSystem/frame'
+import { commonFrame, commonFrameActive, commonFrameBlur } from '@/design/styledSystem/Frame'
+import type { FrameController } from '@/design/styledSystem/Frame'
 import { isClass, pushEmpty } from '@/model/utilities/classNamer'
 
 export type StyleOptions = FrameController & InputHTMLAttributes<HTMLInputElement>

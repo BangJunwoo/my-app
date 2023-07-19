@@ -1,5 +1,7 @@
-const notFound = () => {
-  return <div>not found 파일이 없어영</div>
+import React from 'react'
+
+const NotFound = () => {
+  return <div>hello 404</div>
 }
 
-export default notFound
+export default NotFound
