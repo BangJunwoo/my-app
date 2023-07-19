@@ -1,10 +1,11 @@
 import '@/design/preset/reset.css'
 import { getDictionary } from '@/../get-dictionary'
 import type { Locale } from '@/../i18n-config'
-import LocaleSwitcher from '@/components/i18n/locale-switcher'
+
 import './layout.scss'
 import Navigation from './Navigation'
-import Header from './Header'
+// import Header from './Header'
+import Header from './(header)'
 
 import Link from 'next/link'
 
@@ -20,14 +21,12 @@ type Props = { params: { lang: Locale }; children: React.ReactNode }
 
 const RootLayout = async ({ params: { lang }, children }: Props) => {
   return (
-    <div>
-      <LocaleSwitcher />
+    <>
       <Navigation />
       <Header />
       <Link href="/test">바로가기</Link>
-
       {children}
-    </div>
+    </>
   )
 }
 

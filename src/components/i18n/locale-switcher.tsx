@@ -12,6 +12,7 @@ type Props = {}
  */
 const LocaleSwitcher = (props: Props) => {
   const pathName = usePathname()
+  console.log('pathName', pathName)
   const redirectedPathName = (locale: string) => {
     if (!pathName) return '/'
     const segments = pathName.split('/')

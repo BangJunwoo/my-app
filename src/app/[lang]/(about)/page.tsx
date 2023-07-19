@@ -4,13 +4,13 @@ type Props = {}
 
 const page = (props: Props) => {
   return (
-    <div>
+    <main>
       <section id="landing">
         <Landing />
       </section>
 
       <p>Test는 /test로</p>
-    </div>
+    </main>
   )
 }
 
