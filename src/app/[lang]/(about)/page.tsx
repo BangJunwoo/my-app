@@ -1,12 +1,14 @@
-import VideoComp from '@/components/videoWrap/FullScreenVideoWrap'
+import Landing from './(landing)'
 
 type Props = {}
 
 const page = (props: Props) => {
   return (
     <div>
-      {' '}
-      <VideoComp src="/video/STEPIN.mp4" />
+      <section id="landing">
+        <Landing />
+      </section>
+
       <p>Test는 /test로</p>
     </div>
   )

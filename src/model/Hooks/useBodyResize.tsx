@@ -6,7 +6,6 @@ const useReSize = () => {
 
   useEffect(() => {
     const ro = new ResizeObserver((entries) => {
-      console.log('옵저버 갯수', entries.length)
       for (let entry of entries) {
         const cr = entry.contentRect
         setWidth(cr.width)

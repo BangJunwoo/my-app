@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 
-// 애플 호환 방식
+// 애플 스크롤 호환 방식
 // 스크롤 위치를 통한 방향 측정
 function useWindowEvent(event: string, callback: EventListener) {
   useEffect(() => {
     // Skip on SSR
     if (typeof window === 'undefined') return () => {}
     window.addEventListener(event, callback, { passive: true })
-
     return () => window.removeEventListener(event, callback)
   }, [event, callback])
 }
@@ -26,8 +25,6 @@ export const useScroll: UseScroll = (scrollingElement) => {
   if (scrollingElement === null) return [0, 'hold']
   useWindowEvent('scroll', (event) => {
     setScroll(scrollingElement.scrollTop)
-    console.log(scroll, lastScroll)
-    console.log('스크롤')
     if (lastScroll > scroll) setDirection('up')
     if (lastScroll < scroll) setDirection('down')
     if (lastScroll === scroll) setDirection('hold')
@@ -35,7 +32,6 @@ export const useScroll: UseScroll = (scrollingElement) => {
     if (timmer) {
       clearTimeout(timmer)
       timmer = setTimeout(() => {
-        console.log('스크롤', 'hold')
         setDirection('hold')
       }, 100)
     }

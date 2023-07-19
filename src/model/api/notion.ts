@@ -1,7 +1,4 @@
-// import { Client } from '@notionhq/client'
-
-// const notion = new Client({ auth: process.env.NEXT_PUBLIC_NOTION_API_KEY })
-// // 클라이언트가 에러가 있어서 fetch 로 수정
+import 'server-only'
 
 export const filteredRows = async (databaseId: string, data: any) => {
   const response = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
@@ -13,12 +10,9 @@ export const filteredRows = async (databaseId: string, data: any) => {
     },
     body: JSON.stringify(data),
   })
-  // const result = await response.json()
-
   return await response.json()
 }
 
-//
 export const retieve = async (pageId: string) => {
   const response = await fetch(`https://api.notion.com/v1/pages/${pageId}`, {
     method: 'GET',
@@ -30,6 +24,10 @@ export const retieve = async (pageId: string) => {
   })
   return await response.json()
 }
+// import { Client } from '@notionhq/client'
+
+// const notion = new Client({ auth: process.env.NEXT_PUBLIC_NOTION_API_KEY })
+// // 클라이언트가 에러가 있어서 fetch 로 수정
 // export const filteredRows = async () => {
 //   const response = await notion.databases.query({
 //     database_id: databaseId,

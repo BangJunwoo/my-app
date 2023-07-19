@@ -31,8 +31,6 @@ const useWheel: UseWhell = (scrollingElement) => {
   if (scrollingElement === null) return [0, 'hold']
   useWindowEvent('wheel', (event) => {
     setWhell(event.deltaY)
-    console.log(wheeel, lastScroll)
-    console.log('wheel', count++)
     if (0 > wheeel) setDirection('up')
     if (0 < wheeel) setDirection('down')
     if (0 === wheeel) setDirection('hold')
@@ -42,7 +40,6 @@ const useWheel: UseWhell = (scrollingElement) => {
       clearTimeout(timmer)
       timmer = setTimeout(() => {
         setDirection('hold')
-
         setWhell(0)
       }, 100)
     }
