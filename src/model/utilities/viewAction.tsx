@@ -5,7 +5,7 @@ export const goToId = (hash: string) => {
 
 export const goToElement = (target: Element | null) => {
   if (target) {
-    const top = target.getBoundingClientRect().top - 100
+    const top = target.getBoundingClientRect().top - 80
     document.scrollingElement?.scrollBy({ top, behavior: 'smooth' })
   }
 }

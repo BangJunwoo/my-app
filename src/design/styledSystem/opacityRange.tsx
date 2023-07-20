@@ -16,13 +16,15 @@ export const opacityApply = (start: number, end: number) => {
     // console.log('max 커서 환산 비율', (cursor / sum) * max)
 
     const result = (cursor / sum) * max
+    // console.log('진행률', (cursor / sum) * 100, '%')
 
-    if (result > min && result < max) {
-      return result
-    } else if (result < min) {
+    if (1 > cursor / sum && 0 < cursor / sum) {
+      return min + result - (cursor / sum) * min
+    } else if (cursor / sum <= 0) {
       return min
-    } else if (result > max) {
+    } else if (cursor / sum >= 1) {
       return max
     }
+    return min
   }
 }

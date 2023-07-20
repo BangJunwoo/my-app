@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { i18n } from '@/../i18n-config'
+import styles from './locale.module.scss'
 
 type Props = {}
 /**
@@ -12,7 +13,7 @@ type Props = {}
  */
 const LocaleSwitcher = (props: Props) => {
   const pathName = usePathname()
-  console.log('pathName', pathName)
+
   const redirectedPathName = (locale: string) => {
     if (!pathName) return '/'
     const segments = pathName.split('/')
@@ -21,18 +22,18 @@ const LocaleSwitcher = (props: Props) => {
   }
 
   return (
-    <div>
-      <p>Locale switcher:</p>
-      <ul>
-        {i18n.locales.map((locale) => {
-          return (
-            <li key={locale}>
-              <Link href={redirectedPathName(locale)}>{locale}</Link>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
+    <ul className={styles.warp}>
+      <li>
+        <Link className={styles.link} href={redirectedPathName('ko')}>
+          KOR
+        </Link>
+      </li>
+      <li>
+        <Link className={styles.link} href={redirectedPathName('en')}>
+          ENG
+        </Link>
+      </li>
+    </ul>
   )
 }
 

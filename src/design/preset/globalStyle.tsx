@@ -61,10 +61,16 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+  }
+
   body {
     font-family: "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
     min-height : 100vh;
+    background-color: #202020;
   }
 
   h2, p {

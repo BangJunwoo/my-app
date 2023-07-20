@@ -1,12 +1,9 @@
-import { i18n } from '@/../i18n-config'
-import './nextGlobals.scss'
-
-// const size = ['1024px', '768px', '1680px']
+import { NotoSans } from '@/design/preset/fonts'
 
 const Root = ({ children }: { children: React.ReactNode }) => {
   return (
     <html>
-      <body>{children}</body>
+      <body className={NotoSans.variable}>{children}</body>
     </html>
   )
 }

@@ -1,13 +1,12 @@
 import '@/design/preset/reset.css'
 import { getDictionary } from '@/../get-dictionary'
 import type { Locale } from '@/../i18n-config'
-
-import './layout.scss'
 import Navigation from './Navigation'
-// import Header from './Header'
+import Scroll from './Header'
 import Header from './(header)'
 
 import Link from 'next/link'
+import './layout.scss'
 
 export const metadata = {
   title: '제목',
@@ -24,7 +23,7 @@ const RootLayout = async ({ params: { lang }, children }: Props) => {
     <>
       <Navigation />
       <Header />
-      <Link href="/test">바로가기</Link>
+      {/* <Scroll /> */}
       {children}
     </>
   )

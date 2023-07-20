@@ -7,6 +7,7 @@ import styles from './layout.module.scss'
 import Navigation from './HashNavigation'
 import Header from './Header'
 import RouterEvent from './RouterEvent'
+import Link from 'next/link'
 
 export const metadata = {
   title: '제목',
@@ -26,6 +27,9 @@ const RootLayout = async ({ params: { lang }, children }: Props) => {
       <RouterEvent />
       <Header />
       <p>Current locale: {lang}</p>
+      <Link id="nav-company" className={styles.link} href="/#company">
+        기업소개
+      </Link>
 
       <p>This text is rendered on the server: {dictionary['server-component'].welcome}</p>
       <h1>로고</h1>

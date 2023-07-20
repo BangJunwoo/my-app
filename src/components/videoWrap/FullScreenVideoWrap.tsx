@@ -1,51 +1,64 @@
 'use client'
 import React, { useRef, useState } from 'react'
+import styled from 'styled-components'
+import { useScroll } from '@/model/Hooks/useScroll'
+import { opacityApply } from '@/design/styledSystem/opacityRange'
+// const [scroll, direction] = useScroll(typeof document !== 'undefined' ? document.scrollingElement : null)
 
 interface VideoProps {
   src: string
 }
+const scrollRange = opacityApply(0, 600)
 
 const Video: React.FC<VideoProps> = ({ src }) => {
-  const [currentTime, setCurrentTime] = useState<number>(0)
   const videoRef = useRef<HTMLVideoElement & HTMLMediaElement>(null)
-
-  const [playing, setPlaying] = useState<boolean>(false)
-
-  const onVideoPress = () => {
-    if (playing) {
-      videoRef.current?.pause()
-      setPlaying(false)
-    } else {
-      videoRef.current?.play()
-      setPlaying(true)
-    }
-  }
-  const onForward10Sec = () => {
-    if (videoRef.current) {
-      console.log('current 체크', videoRef.current.duration)
-      console.log(videoRef.current?.currentTime)
-
-      videoRef.current.currentTime = currentTime + 0.1
-      setCurrentTime(currentTime + 0.1)
-    }
-  }
-
-  const onBackward10Sec = () => {
-    if (videoRef.current) {
-      console.log(videoRef.current?.currentTime)
-      videoRef.current.currentTime = currentTime - 0.1
-      setCurrentTime(currentTime - 0.1)
-    }
-  }
+  const [scroll, direction] = useScroll(typeof document !== 'undefined' ? document.scrollingElement : null)
 
   return (
-    <div>
-      <button onClick={onBackward10Sec}>-10초</button>
-
-      <button onClick={onForward10Sec}>+10초</button>
-      <video ref={videoRef} onClick={onVideoPress} src={src} />
-    </div>
+    <VideoContainer>
+      <VideoWrap width={scrollRange(scroll, 1600, 428)}>
+        <video ref={videoRef} muted loop autoPlay src={src} width={1600} />
+      </VideoWrap>
+    </VideoContainer>
   )
 }
 
 export default Video
+
+type Video = {
+  width: number
+}
+
+const VideoContainer = styled.article`
+  position: sticky;
+  top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 1600px;
+  margin: 0 auto;
+  margin-top: -600px;
+
+  /* margin-top: -500px; */
+`
+
+const VideoWrap = styled.div<Video>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  width: ${(props) => props.width}px;
+
+  transition-duration: 0.1s;
+  will-change: width, left, top;
+  transition-property: width, left, top;
+
+  border-radius: 32px;
+
+  // left: 10vw;
+  // 사이즈가 max-width를 넘지 않는데 left는 넘어지기 때문에 왼쪽으로 쏠리게 되는 상황이 발생함
+
+  border: 2px solid #fff;
+  background-color: #fff;
+  overflow: hidden;
+`

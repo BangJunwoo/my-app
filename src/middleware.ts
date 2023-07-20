@@ -22,6 +22,7 @@ function getLocale(request: NextRequest): string | undefined {
 }
 
 export function middleware(request: NextRequest) {
+  console.log(request)
   const pathname = request.nextUrl.pathname
   console.log('middleware request path', pathname)
 

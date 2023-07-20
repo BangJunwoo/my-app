@@ -1,5 +1,10 @@
 import 'server-only'
-import { QueryDatabaseResponse, QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
+import {
+  QueryDatabaseResponse,
+  PageObjectResponse,
+  PartialPageObjectResponse,
+  DatabaseObjectResponse,
+} from '@notionhq/client/build/src/api-endpoints'
 import { notionDB } from '@/repository/notion'
 
 type Props = {}
@@ -27,13 +32,16 @@ const page = async (props: Props) => {
   // revalidate는 seconds 단위다
   const result: QueryDatabaseResponse = await notionDB('533d140d87a34058aa292e2de3b39e88', query)
 
+  console.log(result)
   return (
     <div>
-      {/* <div>{JSON.stringify(result.results, null, 2)}</div> */}
       {result.results.map((text, index) => {
+        // 타입 단언 필요
         return (
           <div key={index}>
-            {JSON.stringify(text, null, 2)}
+            <p>{text.object}</p>
+            <p>{text.id}</p>
+            {/* <p>{text.url ? text.url : '빈 값'}</p> */}
             <hr />
           </div>
         )

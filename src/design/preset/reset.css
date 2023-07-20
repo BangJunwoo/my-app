@@ -140,12 +140,18 @@ table {
 *::before,
 *::after {
   box-sizing: border-box;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   line-height: 1.5;
   min-height: 100vh;
+  background-color: #202020;
 }
 
 h2,
