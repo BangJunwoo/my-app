@@ -1,5 +1,59 @@
 .nav {
   position: fixed;
-  bottom: 160px;
-  right: 160px;
+  z-index: 50;
+
+  top: 110px;
+  right: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-wrap: nowrap;
+
+    font-family: var(--noto-sans-kr);
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+    color: white;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      background-color: transparent;
+      border: 1px solid white;
+      transition: 0.1s all;
+    }
+
+    &.active::after {
+      content: '';
+      height: 16px;
+      background-color: white;
+    }
+    &:hover::after {
+      height: 16px;
+      background-color: white;
+    }
+  }
+  &:hover {
+    a.active::after {
+      content: '';
+      height: 8px;
+      background-color: white;
+    }
+    a.active:hover::after {
+      content: '';
+      height: 16px;
+      background-color: white;
+    }
+  }
 }

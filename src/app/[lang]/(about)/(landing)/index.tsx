@@ -15,19 +15,28 @@ const index = (props: Props) => {
   return (
     // <section id="landing">
     <Landing
+      id="landing"
       style={{
         transform: `translate3d(0, -${scroll}px, 0)`,
       }}
     >
-      <WordWrap top={0} left={100}>
-        <WordStroke>We Make</WordStroke>
-        <Word>Creative</Word>
+      <WordWrap top={246} left={0}>
+        <WordStroke>We Integrate</WordStroke>
       </WordWrap>
-
-      <WordWrap top={400} left={1000}>
-        <WordStroke>We Make</WordStroke>
-        <Word>Creative Creative</Word>
+      <WordWrap top={478} left={0}>
+        <Word>AI Tech</Word>
       </WordWrap>
+      <WordWrap top={710} left={0}>
+        <WordStroke>into Gaming</WordStroke>
+      </WordWrap>
+      <WordWrap top={678} left={355}>
+        <Word>Gaming</Word>
+      </WordWrap>
+      xw
+      <RowWrap top={359} left={293}>
+        <Long />
+        <Short />
+      </RowWrap>
     </Landing>
     // </section>
   )
@@ -37,11 +46,29 @@ const index = (props: Props) => {
 
 export default index
 
+const Long = styled.div`
+  width: 776px;
+  height: 56px;
+  border-radius: 28px;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+`
+
+const Short = styled.div`
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+`
+
 const Landing = styled.section`
   position: relative;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1200px;
+
   z-index: 10;
   transition: 0.2s transform;
 `
@@ -50,6 +77,21 @@ type Position = {
   top: number
   left: number
 }
+
+const RowWrap = styled.div<Position>`
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  gap: 72px;
+  top: ${(props) => props.top}px;
+  left: ${(props) => props.left}px;
+  z-index: 10;
+  max-width: 100%;
+
+  white-space: nowrap;
+  /* p:nth-child(even) {
+  } */
+`
 
 const WordWrap = styled.div<Position>`
   position: absolute;
@@ -68,7 +110,7 @@ const WordWrap = styled.div<Position>`
 const Word = styled.p`
   position: relative;
   font-family: var(--noto-sans-kr);
-  font-size: 120px;
+  font-size: 160px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;

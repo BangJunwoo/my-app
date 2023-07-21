@@ -16,7 +16,7 @@ function useWindowEvent(event: 'wheel', callback: EventListener) {
   }, [event, callback])
 }
 
-export type Direction = 'hold' | 'up' | 'down'
+export type Direction = 'up' | 'down'
 
 type UseWhell = (scrollingElement: Element | null) => [Scroll, Direction]
 type Scroll = number
@@ -26,23 +26,22 @@ let lastScroll = 0
 let timmer = setTimeout(() => {})
 const useWheel: UseWhell = (scrollingElement) => {
   const [wheeel, setWhell] = useState(0)
-  const [direction, setDirection] = useState<Direction>('hold')
+  const [direction, setDirection] = useState<Direction>('up')
 
-  if (scrollingElement === null) return [0, 'hold']
+  if (scrollingElement === null) return [0, 'up']
   useWindowEvent('wheel', (event) => {
     setWhell(event.deltaY)
     if (0 > event.deltaY) setDirection('up')
     if (0 < event.deltaY) setDirection('down')
-    if (0 === event.deltaY) setDirection('hold')
-    lastScroll = event.deltaY
 
-    if (timmer) {
-      clearTimeout(timmer)
-      timmer = setTimeout(() => {
-        setDirection('hold')
-        setWhell(0)
-      }, 100)
-    }
+    lastScroll = wheeel
+
+    // if (timmer) {
+    //   clearTimeout(timmer)
+    //   timmer = setTimeout(() => {
+    //     setWhell(0)
+    //   }, 100)
+    // }
   })
   return [wheeel, direction]
 }

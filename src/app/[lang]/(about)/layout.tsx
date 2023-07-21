@@ -21,9 +21,10 @@ type Props = { params: { lang: Locale }; children: React.ReactNode }
 const RootLayout = async ({ params: { lang }, children }: Props) => {
   return (
     <>
-      <Navigation />
-      <Header />
-      {/* <Scroll /> */}
+      {/* <Navigation /> */}
+      <Header lang={lang} />
+
+      <Scroll />
       {children}
     </>
   )

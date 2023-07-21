@@ -1,0 +1,29 @@
+.visible {
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+  overflow: auto;
+  clip-path: none;
+}
+
+.hidden {
+  transform: translateY(-1rem) !important;
+  opacity: 0 !important;
+}
+
+.realVisible {
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+  overflow: auto;
+  clip-path: none;
+}
+
+.realHidden {
+  display: block;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}

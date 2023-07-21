@@ -16,8 +16,13 @@ const Video: React.FC<VideoProps> = ({ src }) => {
 
   return (
     <VideoContainer>
-      <VideoWrap width={scrollRange(scroll, 1600, 428)}>
-        <video ref={videoRef} muted loop autoPlay src={src} width={1600} />
+      <VideoWrap
+        style={{
+          width: scrollRange(scroll, 1080 * 0.7, 540 * 0.7) * 1.68,
+          height: scrollRange(scroll, 1080 * 0.7, 540 * 0.7),
+        }}
+      >
+        <video ref={videoRef} muted loop autoPlay src={src} height={scrollRange(scroll, 1080 * 0.7, 540 * 0.7)} />
       </VideoWrap>
     </VideoContainer>
   )
@@ -25,33 +30,34 @@ const Video: React.FC<VideoProps> = ({ src }) => {
 
 export default Video
 
-type Video = {
-  width: number
-}
-
+// 마진 잡는 게 컨테이너 사이즈가 된다
 const VideoContainer = styled.article`
   position: sticky;
-  top: 150px;
+  top: 80px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  max-width: 1600px;
-  margin: 0 auto;
-  margin-top: -600px;
+
+  /* margin-left: auto;
+  margin-right: 160px; */
+
+  margin-right: 200px;
+  margin-top: -300px;
 
   /* margin-top: -500px; */
 `
 
-const VideoWrap = styled.div<Video>`
+// 비디오 커지는 위치 제어
+const VideoWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 600px;
-  width: ${(props) => props.width}px;
+  /* height: 960px;
+  width: 540px; */
 
-  transition-duration: 0.1s;
-  will-change: width, left, top;
-  transition-property: width, left, top;
+  transition-duration: 200ms;
+  will-change: width, left, top, height;
+  transition-property: width, left, top, height;
 
   border-radius: 32px;
 
@@ -61,4 +67,10 @@ const VideoWrap = styled.div<Video>`
   border: 2px solid #fff;
   background-color: #fff;
   overflow: hidden;
+
+  video {
+    transition-duration: 200ms;
+    will-change: width, height;
+    transition-property: width, height;
+  }
 `

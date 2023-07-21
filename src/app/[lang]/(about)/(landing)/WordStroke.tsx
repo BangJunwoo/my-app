@@ -20,7 +20,7 @@ export default WordStroke
 const Word = styled.div`
   position: relative;
   font-family: var(--noto-sans-kr);
-  font-size: 120px;
+  font-size: 160px;
   font-style: normal;
   font-weight: 700;
   line-height: 170px;
@@ -33,7 +33,7 @@ const Front = styled.p`
   left: 0;
 
   font-family: var(--noto-sans-kr);
-  font-size: 120px;
+  font-size: 160px;
   font-style: normal;
   font-weight: 700;
   line-height: 170px;
@@ -48,7 +48,7 @@ const Back = styled.p`
   left: 0;
 
   font-family: var(--noto-sans-kr);
-  font-size: 120px;
+  font-size: 160px;
   font-style: normal;
   font-weight: 700;
   line-height: 170px;

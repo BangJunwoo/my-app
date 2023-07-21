@@ -1,0 +1,9 @@
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+
+  h2 {
+    scroll-snap-stop: normal;
+    scroll-snap-align: start center;
+  }
+}

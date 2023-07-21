@@ -1,5 +1,6 @@
 export const goToId = (hash: string) => {
   const target = document.getElementById(hash)
+
   goToElement(target)
 }
 
