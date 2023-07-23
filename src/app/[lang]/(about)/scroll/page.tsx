@@ -9,7 +9,7 @@ type Props = {}
 const page = (props: Props) => {
   return (
     <main className={styles.main}>
-      <p>hee</p>
+      <p>테스트를 위한 스크롤 페이지</p>
       <p>hee</p>
       <p>hee</p>
     </main>

@@ -8,7 +8,7 @@ import { opacityApply } from '@/design/styledSystem/opacityRange'
 interface VideoProps {
   src: string
 }
-const scrollRange = opacityApply(0, 600)
+const scrollRange = opacityApply(0, 300)
 
 const Video: React.FC<VideoProps> = ({ src }) => {
   const videoRef = useRef<HTMLVideoElement & HTMLMediaElement>(null)
@@ -55,7 +55,7 @@ const VideoWrap = styled.div`
   /* height: 960px;
   width: 540px; */
 
-  transition-duration: 200ms;
+  transition-duration: 500ms;
   will-change: width, left, top, height;
   transition-property: width, left, top, height;
 
@@ -69,7 +69,7 @@ const VideoWrap = styled.div`
   overflow: hidden;
 
   video {
-    transition-duration: 200ms;
+    transition-duration: 500ms;
     will-change: width, height;
     transition-property: width, height;
   }

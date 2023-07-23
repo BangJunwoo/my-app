@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 }
 
 const Root = ({ children, params }: { children: React.ReactNode; params: { lang: string } }) => {
-  console.log('lang 을 html 이든 , head 든 추가해줘야한다', params.lang)
+  console.log('lang 을 html 이든 , head 든 head에 추가해줘야한다 스크립트로 추가하는 것도 나쁘지 않아보임', params.lang)
   return (
     <>
       <Script id="gtm" strategy="beforeInteractive">

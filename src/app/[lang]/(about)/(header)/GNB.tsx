@@ -1,15 +1,14 @@
-'use client'
-
 import React from 'react'
 import Link from 'next/link'
 import styles from './gnb.module.scss'
-import { useParams } from 'next/navigation'
 
 const ids = ['nav-about', 'nav-product', 'nav-careers', 'nav-news-room', 'nav-contact']
 
-const GNB = () => {
-  const { lang } = useParams()
+type Props = {
+  lang: string
+}
 
+const GNB = ({ lang }: Props) => {
   return (
     <nav className={styles.gnb}>
       <ul className="nav-about">

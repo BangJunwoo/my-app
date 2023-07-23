@@ -7,12 +7,12 @@ const useViewObserver = (array: string[]) => {
       for (let entry of entries) {
         if (entry.isIntersecting) {
           const active = entry.target.id
-          console.log('진입', active)
+
           document.getElementById(`nav-${active}`)?.classList.add(styles.active)
           document.getElementById(`side-${active}`)?.classList.add(styles.active)
 
           array.forEach((text) => {
-            if (active === text) return console.log('예외')
+            if (active === text) return
             document.getElementById(`nav-${text}`)?.classList.remove(styles.active)
             document.getElementById(`side-${text}`)?.classList.remove(styles.active)
           })

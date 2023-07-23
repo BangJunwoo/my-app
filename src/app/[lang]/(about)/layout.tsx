@@ -2,7 +2,7 @@ import '@/design/preset/reset.css'
 import { getDictionary } from '@/../get-dictionary'
 import type { Locale } from '@/../i18n-config'
 import Navigation from './Navigation'
-import Scroll from './Header'
+import Scroll from './ScrollEvents'
 import Header from './(header)'
 
 import Link from 'next/link'

@@ -1,13 +1,13 @@
 .nav {
   position: fixed;
-  z-index: 50;
+  z-index: 99999;
 
   top: 110px;
   right: 30px;
 
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2px;
 
   a {
     display: flex;
@@ -16,13 +16,14 @@
     justify-content: flex-end;
     gap: 1rem;
     flex-wrap: nowrap;
+    padding: 3px;
 
     font-family: var(--noto-sans-kr);
     font-size: 12px;
     font-weight: 400;
     white-space: nowrap;
-    color: white;
-
+    color: transparent;
+    transition: 0.5s color;
     &::after {
       content: '';
       display: block;
@@ -34,10 +35,14 @@
       transition: 0.1s all;
     }
 
-    &.active::after {
-      content: '';
-      height: 16px;
-      background-color: white;
+    &.active {
+      color: white;
+
+      &::after {
+        content: '';
+        height: 16px;
+        background-color: white;
+      }
     }
     &:hover::after {
       height: 16px;
@@ -45,6 +50,10 @@
     }
   }
   &:hover {
+    a:hover {
+      color: white;
+    }
+
     a.active::after {
       content: '';
       height: 8px;

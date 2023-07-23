@@ -5,9 +5,9 @@ import useWheel from '@/model/Hooks/useHeaderWheel'
 import useWindowResize from '@/model/Hooks/useBodyResize'
 import useMediaSize from '@/model/Hooks/useMediaSize'
 
-import styles from './header.module.scss'
 import hidden from '@/design/preset/hidden.module.css'
 
+let timmer = setTimeout(() => {})
 /**
  * scroll event 테스트
  */
@@ -20,17 +20,28 @@ const Header = () => {
   useEffect(() => {
     if (xDirection === 'up') {
       document.querySelectorAll('header').forEach((e) => e.classList.remove(hidden.hidden))
-      console.log('up')
+
+      if (timmer) {
+        clearTimeout(timmer)
+        timmer = setTimeout(() => {
+          document.querySelectorAll('header').forEach((e) => e.classList.remove(hidden.realHidden))
+        })
+      }
     }
     if (xDirection === 'down') {
-      console.log('down')
       document.querySelectorAll('header').forEach((e) => e.classList.add(hidden.hidden))
+      if (timmer) {
+        clearTimeout(timmer)
+        timmer = setTimeout(() => {
+          document.querySelectorAll('header').forEach((e) => e.classList.add(hidden.realHidden))
+        }, 300)
+      }
     }
   }, [xDirection])
 
   return (
     <>
-      <div className={styles.header} style={{ left: '0' }}>
+      {/* <div className={styles.header} style={{ left: '0' }}>
         isMobile: {String(isMobile)} <br /> isTablet: {String(isTablet)} <br /> isDesktop: {String(isDesktop)} <br />{' '}
         isWide : {String(isWide)}
       </div>
@@ -43,7 +54,7 @@ const Header = () => {
 
       <div className={styles.header} style={{ left: '600px' }}>
         width : {width} <br /> height : {height}
-      </div>
+      </div> */}
     </>
   )
 }

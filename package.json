@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@sentry/nextjs": "^7.57.0",
     "axios": "^1.4.0",
+    "gsap": "^3.12.2",
     "next": "^13.4.9",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
