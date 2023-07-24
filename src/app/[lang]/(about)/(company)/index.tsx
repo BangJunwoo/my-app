@@ -1,22 +1,43 @@
 'use client'
 //임시로 styled와 use client 사용 >> 서버 사이드를 위한 module.scss 사용으로 변환 필요
 import styled from 'styled-components'
-
 import Image from 'next/image'
 import React from 'react'
 import CompanyBox from './CompanyBox'
+import { goToId } from '@/model/utilities/viewAction'
+import { useRouter, useParams } from 'next/navigation'
 
 type Props = {}
 
 const index = (props: Props) => {
+  const router = useRouter()
+  const { lang } = useParams()
   return (
-    <Company id="company">
+    <Company>
       <Warp>
-        <Title>싸이드워크 엔터테인먼트</Title>
+        <Title id="company">싸이드워크 엔터테인먼트</Title>
         <BoxWarp>
-          <CompanyBox src="/image/test.jpeg" image="/image/Technology.svg" label="View more" title="Technology" />
-          <CompanyBox src="/image/test.jpeg" image="/image/Career.svg" label="View more" title="Product" />
-          <CompanyBox src="/image/test.jpeg" image="/image/Product.svg" label="View more" title="Career" />
+          <CompanyBox
+            src="/image/Technology.png"
+            image="/image/Technology.svg"
+            label="View more"
+            title="Technology"
+            onClick={() => goToId('technology')}
+          />
+          <CompanyBox
+            src="/image/Product.png"
+            image="/image/Product.svg"
+            label="View more"
+            title="Product"
+            onClick={() => router.replace(`/${lang}/product`)}
+          />
+          <CompanyBox
+            src="/image/Career.png"
+            image="/image/Career.svg"
+            label="View more"
+            title="Career"
+            onClick={() => router.replace(`/${lang}/career`)}
+          />
         </BoxWarp>
       </Warp>
     </Company>
@@ -64,8 +85,25 @@ const BoxWarp = styled.div`
   height: 400px;
   display: flex;
   flex-direction: row;
-
   gap: 24px;
+
+  img.icon {
+    z-index: 100;
+    transition-duration: 0.5s;
+    transition-property: opacity, height;
+
+    opacity: 1;
+  }
+
+  &:has(.company-box:hover) {
+    img.icon {
+      z-index: 100;
+      transition-duration: 0.5s;
+      transition-property: opacity, height;
+      height: 0;
+      opacity: 0;
+    }
+  }
 `
 
 const Box = styled.div`

@@ -12,14 +12,12 @@ const index = () => {
   const [scroll, direction] = useScroll(typeof document !== 'undefined' ? document.scrollingElement : null)
 
   return (
-    // <section id="landing">
     <Landing
-      id="landing"
       style={{
         transform: `translate3d(0, -${scroll}px, 0)`,
       }}
     >
-      <WordWrap top={246} left={0}>
+      <WordWrap top={246} left={0} id="landing">
         <WordStroke>We Integrate</WordStroke>
       </WordWrap>
       <WordWrap top={478} left={0}>

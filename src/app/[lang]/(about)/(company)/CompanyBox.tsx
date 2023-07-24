@@ -11,17 +11,19 @@ type Props = {
   label: string
   title: string
   image: string
+  onClick: () => void
 }
 
-const CompanyBox = ({ src, title, label, iamge }: Props) => {
+const CompanyBox = ({ src, title, label, image, onClick }: Props) => {
   const [hover, setHover] = useState(false)
   const [boxHover, setBoxHover] = useState(false)
   return (
-    <Box onMouseEnter={() => setBoxHover(true)} onMouseLeave={() => setBoxHover(false)}>
-      <Image src={iamge} height={120} width={120} alt={title} style={{ opacity: boxHover ? 0 : 1 }} />
+    <Box className="company-box" onMouseEnter={() => setBoxHover(true)} onMouseLeave={() => setBoxHover(false)}>
+      <Image src={image} className="icon" height={120} width={120} alt={title} />
       <label onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {title}
-        <Button label={label} hover={hover} style={{ opacity: boxHover ? 1 : 0 }} />
+        <Button label={label} hover={hover} style={{ opacity: boxHover ? 1 : 0 }} onClick={onClick} />
+        <button onClick={(e) => e}></button>
       </label>
       <BoxIamge src={src} alt={title} width={720} height={400} />
     </Box>

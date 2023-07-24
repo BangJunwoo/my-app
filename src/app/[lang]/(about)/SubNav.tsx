@@ -15,7 +15,7 @@ const hidden = ['landing', 'stepin']
 const inverse = ['company', 'history']
 
 const SubNav = ({ dictionary }: Props) => {
-  const text = useViewObserver(['landing', 'company', 'history', 'technology', 'stepin'])
+  const text = useViewObserver(array)
 
   useEffect(() => {
     // 보이는 상태 면 필요한 속성 적용

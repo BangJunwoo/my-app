@@ -18,14 +18,15 @@ interface ButtonProps {
   Icon?: any
   onClick?: () => void
   hover: boolean
+  style: React.CSSProperties
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ backgroundColor, label, Icon = Arrow, hover, ...props }: ButtonProps) => {
+export const Button = ({ backgroundColor, label, Icon = Arrow, hover, style, ...props }: ButtonProps) => {
   return (
-    <button type="button" className={styles.button} {...props}>
+    <button type="button" className={styles.button} style={style} {...props}>
       {label}
       <Icon black="black" white="white" hover={hover} width="6px" height="6px" />
       <style jsx>{`
