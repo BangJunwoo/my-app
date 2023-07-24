@@ -1,6 +1,5 @@
 import '@/design/preset/reset.css'
 import Footer from './(footer)'
-import { getDictionary } from '@/../get-dictionary'
 import type { Locale } from '@/../i18n-config'
 import LocaleSwitcher from '@/components/i18n/locale-switcher'
 import styles from './layout.module.scss'
@@ -17,12 +16,10 @@ export const metadata = {
 type Props = { params: { lang: Locale }; children: React.ReactNode }
 const list = ['1', '2', '3', '4', '5', '6']
 
-const RootLayout = async ({ params: { lang }, children }: Props) => {
-  const dictionary = await getDictionary(lang)
-
+const RootLayout = ({ params: { lang }, children }: Props) => {
   return (
     <div>
-      <LocaleSwitcher />
+      <LocaleSwitcher lang={lang} />
       <Navigation />
       <RouterEvent />
       <Header />
@@ -31,7 +28,6 @@ const RootLayout = async ({ params: { lang }, children }: Props) => {
         기업소개
       </Link>
 
-      <p>This text is rendered on the server: {dictionary['server-component'].welcome}</p>
       <h1>로고</h1>
       <p>id 기준으로 추적되게 + 네비게이팅도 되게 해보자</p>
       {Array.from({ length: 10 }).map((item, index) => {

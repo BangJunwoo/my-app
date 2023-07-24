@@ -1,6 +1,6 @@
+'use client'
+
 import styles from './subNav.module.scss'
-import { useRouter } from 'next/navigation'
-import { goToId } from '@/model/utilities/viewAction'
 import useViewObserver from '@/model/Hooks/useObserver'
 
 type Props = {}

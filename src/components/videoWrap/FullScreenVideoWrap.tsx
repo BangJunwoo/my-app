@@ -8,7 +8,7 @@ import { opacityApply } from '@/design/styledSystem/opacityRange'
 interface VideoProps {
   src: string
 }
-const scrollRange = opacityApply(0, 300)
+const scrollRange = opacityApply(0, 200)
 
 const Video: React.FC<VideoProps> = ({ src }) => {
   const videoRef = useRef<HTMLVideoElement & HTMLMediaElement>(null)

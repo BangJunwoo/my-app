@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import styles from './gnb.module.scss'
+import ScrollEvents from './ScrollEvents'
 
 const ids = ['nav-about', 'nav-product', 'nav-careers', 'nav-news-room', 'nav-contact']
 
@@ -83,6 +84,7 @@ const GNB = ({ lang }: Props) => {
           </Link>
         </li>
       </ul>
+      <ScrollEvents />
     </nav>
   )
 }

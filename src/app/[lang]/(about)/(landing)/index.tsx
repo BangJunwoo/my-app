@@ -8,10 +8,9 @@ import React from 'react'
 
 import WordStroke from './WordStroke'
 
-type Props = {}
-
-const index = (props: Props) => {
+const index = () => {
   const [scroll, direction] = useScroll(typeof document !== 'undefined' ? document.scrollingElement : null)
+
   return (
     // <section id="landing">
     <Landing
@@ -30,9 +29,8 @@ const index = (props: Props) => {
         <WordStroke>into Gaming</WordStroke>
       </WordWrap>
       <WordWrap top={678} left={355}>
-        <Word>Gaming</Word>
+        <Word>Gaming </Word>
       </WordWrap>
-      xw
       <RowWrap top={359} left={293}>
         <Long />
         <Short />
