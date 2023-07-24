@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { i18n } from '@/../i18n-config'
 import styles from './locale.module.scss'
 
 type Props = {
@@ -20,6 +19,7 @@ const LocaleSwitcher = ({ lang }: Props) => {
     if (!pathName) return '/'
     const segments = pathName.split('/')
     segments[1] = locale
+
     return segments.join('/')
   }
 

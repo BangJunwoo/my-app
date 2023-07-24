@@ -11,6 +11,7 @@ import VideoComp from '@/components/videoWrap/FullScreenVideoWrap'
 import { getDictionary } from '@/../get-dictionary'
 import { Locale } from '@/../i18n-config'
 import { Metadata, ResolvingMetadata } from 'next'
+import Company from './(company)'
 
 type Props = {
   params: { lang: Locale }
@@ -34,25 +35,23 @@ const page = async ({ params }: Props) => {
   const dictionary = await getDictionary(params.lang)
   return (
     <main>
-      <SubNav />
+      <SubNav dictionary={dictionary.about.subNav} />
       <div className={pageStyle.landing}>
         <Landing />
         <VideoComp src="/video/STEPIN.mp4" />
       </div>
 
-      <h2 id="company" className={styles.h2}>
-        {dictionary.about.company}
-      </h2>
+      <Company />
       <h2 id="history" className={styles.h2}>
-        {dictionary.about.history}
+        {dictionary.about.subNav.history}
       </h2>
 
       <h2 id="technology" className={styles.h2}>
-        {dictionary.about.technology}
+        {dictionary.about.subNav.technology}
       </h2>
 
       <h2 id="stepin" className={styles.h2}>
-        {dictionary.about.stepin}
+        {dictionary.about.subNav.stepin}
       </h2>
     </main>
   )

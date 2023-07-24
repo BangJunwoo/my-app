@@ -1,8 +1,8 @@
 const value = {
-  landing: '홈',
-  company: '기업소개',
-  history: '연혁',
-  technology: 'AI 기술',
+  landing: 'Landing',
+  company: 'Company',
+  history: 'History',
+  technology: 'Technology',
   stepin: 'Stepin',
 }
 

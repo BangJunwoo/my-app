@@ -1,9 +1,6 @@
 const value = {
-  landing: '홈',
-  company: '기업소개',
-  history: '연혁',
-  technology: 'AI 기술',
-  stepin: 'Stepin',
+  title: '한국어 제목입니다',
+  description: '설명입니다',
 }
 
 export default value

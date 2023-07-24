@@ -26,11 +26,15 @@ const index = () => {
         <Word>AI Tech</Word>
       </WordWrap>
       <WordWrap top={710} left={0}>
-        <WordStroke>into Gaming</WordStroke>
+        <WordStroke>into</WordStroke>
+        <WordWrap top={0} left={355}>
+          <WordStroke>Gaming</WordStroke>
+        </WordWrap>
+        <WordWrap top={-30} left={345}>
+          <Word>Gaming</Word>
+        </WordWrap>
       </WordWrap>
-      <WordWrap top={678} left={355}>
-        <Word>Gaming </Word>
-      </WordWrap>
+
       <RowWrap top={359} left={293}>
         <Long />
         <Short />

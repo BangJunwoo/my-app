@@ -24,6 +24,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-K8TJ543Z')`}
       </Script>
+      <Script id="i18n" strategy="beforeInteractive">
+        {`
+;(()=>{document.querySelector('html').lang = '${params.lang}';})()
+
+
+        `}
+      </Script>
+      <Script id="scrollTo">
+        {`
+;(()=>{document.scrollingElement?.scrollTo({ top: 0, behavior: 'auto'})
+})()
+
+
+        `}
+      </Script>
+
       <noscript>
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-K8TJ543Z"

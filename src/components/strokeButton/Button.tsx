@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './button.module.scss'
-import Arrow from '../svg/Arrow'
+import Arrow from '../svg/Arrow6px'
 
 interface ButtonProps {
   /**
@@ -17,28 +17,20 @@ interface ButtonProps {
    */
   Icon?: any
   onClick?: () => void
+  hover: boolean
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ backgroundColor, label, Icon = Arrow, ...props }: ButtonProps) => {
-  const [hover, setHover] = useState(false)
-
+export const Button = ({ backgroundColor, label, Icon = Arrow, hover, ...props }: ButtonProps) => {
   return (
-    <button
-      type="button"
-      className={styles.button}
-      {...props}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
+    <button type="button" className={styles.button} {...props}>
       {label}
-      <Icon black="black" white="white" hover={hover} />
+      <Icon black="black" white="white" hover={hover} width="6px" height="6px" />
       <style jsx>{`
         button {
           background-color: ${backgroundColor};
-          z-index: 10;
         }
       `}</style>
     </button>

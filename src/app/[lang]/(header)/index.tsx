@@ -3,22 +3,25 @@ import GNB from './GNB'
 import styles from './header.module.scss'
 import Logo from './Logo'
 import hidden from '@/design/preset/hidden.module.css'
+import { getDictionary } from 'get-dictionary'
+import { Locale } from 'i18n-config'
 
 type Props = {
-  lang: string
+  lang: Locale
 }
 
-const Header = ({ lang }: Props) => {
+const Header = async ({ lang }: Props) => {
+  const dictionary = await getDictionary(lang)
   return (
     <header className={styles.wrap}>
       <div className={styles.header}>
         <h1>
           <a href={`/${lang}/`}>
             <Logo />
-            <span className={hidden.realHidden}>싸이드워크엔터테인먼트</span>
+            <span className={hidden.realHidden}>{dictionary.header.title} </span>
           </a>
         </h1>
-        <GNB lang={lang} />
+        <GNB lang={lang} dictionary={dictionary.header} />
         <LocaleSwitcher lang={lang} />
       </div>
     </header>

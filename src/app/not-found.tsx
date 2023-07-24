@@ -1,8 +1,7 @@
-import { match } from '@formatjs/intl-localematcher'
-import Negotiator from 'negotiator'
+import { redirect } from 'next/navigation'
 
 const NotFound = () => {
-  return <div>hello 404</div>
+  redirect(`/404`)
 }
 
 export default NotFound

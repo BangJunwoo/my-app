@@ -15,9 +15,12 @@ function getLocale(request: NextRequest): string | undefined {
   // @ts-ignore locales are readonly
   const locales: string[] = i18n.locales
 
+  // 그냥 로컬 스토리지에 저장해놓고 가져오자
   let languages = new Negotiator({ headers: negotiatorHeaders }).languages(locales)
-
+  console.log('languages', languages)
   const locale = matchLocale(languages, locales, i18n.defaultLocale)
+
+  console.log('locale', locale)
 
   return locale
 }
@@ -29,7 +32,9 @@ export function middleware(request: NextRequest) {
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   )
-
+  // 404는 /en/1234 를 해도
+  // Invariant: dynamic responses cannot be unchunked. This is a bug in Next.js 에러로
+  // 실질적으로 /404에서 리디렉션 되면서 locale이 초기화 되는 문제가 있음
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request)
 
