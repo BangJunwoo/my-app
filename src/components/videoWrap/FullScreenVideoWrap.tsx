@@ -42,6 +42,7 @@ const VideoContainer = styled.article`
   margin-right: 160px; */
 
   margin-right: 200px;
+  margin-bottom: 200px;
   margin-top: -300px;
 
   /* margin-top: -500px; */
